@@ -97,8 +97,10 @@ function showQuestion() {
   const progressPercent = (currentQuestionIndex / quizQuestions.length) * 100;
   progressBar.style.width = progressPercent + "%";
 
+  // textContent insere apenas texto; tags HTML seriam exibidas como texto.
   questionText.textContent = currentQuestion.question;
 
+  // innerHTML interpreta HTML; aqui é usado para remover todo o conteúdo.
   answersContainer.innerHTML = "";
 
   currentQuestion.answers.forEach((answer) => {

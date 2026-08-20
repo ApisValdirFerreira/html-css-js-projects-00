@@ -1,6 +1,11 @@
 const cards = document.querySelectorAll(".card");
 const lists = document.querySelectorAll(".list");
 
+const dragStart = (e) => {
+  // this allows the drop location to know which element is being moved when you release it
+  e.dataTransfer.setData("text/plain", e.currentTarget.id);
+};
+
 for (const card of cards) {
   card.addEventListener("dragstart", dragStart);
   card.addEventListener("dragend", dragEnd);
@@ -11,11 +16,6 @@ for (const list of lists) {
   list.addEventListener("dragenter", dragEnter);
   list.addEventListener("dragleave", dragLeave);
   list.addEventListener("drop", dragDrop);
-}
-
-function dragStart(e) {
-  // this allows the drop location to know which element is being moved when you release it
-  e.dataTransfer.setData("text/plain", this.id);
 }
 
 function dragEnd() {
